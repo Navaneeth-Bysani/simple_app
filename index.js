@@ -1,9 +1,11 @@
 const app = require('./app');
+require('dotenv').config();
 
-app.listen(3000, () => {
-    console.log('Running on port 4000...')
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Running on port ${PORT}...`);
 })
-app.set('views', 'html')
+
 app.use('/', async (req,res,next)=> {
     try {
         res.send('Hi');
